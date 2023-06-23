@@ -124,6 +124,11 @@ void NitrosMonitorNode::CreateROSTypeMonitorSubscriber()
     get_logger(),
     "[NitrosMonitorNode] Created a ROS type monitor subscriber: topic=\"%s\"",
     monitor_sub_->get_topic_name());
+
+  if (monitor_power_data_format_ == "power_msgs/msg/Power")
+  { 
+    CreatePowerSubscription();
+  }
 }
 
 void NitrosMonitorNode::CreateNitrosMonitorSubscriber()
@@ -159,6 +164,11 @@ void NitrosMonitorNode::CreateNitrosMonitorSubscriber()
     get_logger(),
     "[NitrosMonitorNode] Created an NITROS type monitor subscriber: topic=\"%s\"",
     monitor_sub_->get_topic_name());
+
+  if (monitor_power_data_format_ == "power_msgs/msg/Power")
+  { 
+    CreatePowerSubscription();
+  }
 }
 
 template<typename T>
